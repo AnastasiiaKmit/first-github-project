@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather forecast</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="cities">
+        <div class="row">
+          <div class="col-4">
+            <h4>
+              <a
+                href="https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                id="sendToKyiv"
+                >Kyiv 💙💛</a
+              >
+            </h4>
+          </div>
+          <div class="col-4">
+            <h4>
+              <a
+                href="https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                id="sendToLondon"
+              >
+                London 👑</a
+              >
+            </h4>
+          </div>
+
+          <div class="col-4">
+            <h4>
+              <a
+                href="https://api.openweathermap.org/data/2.5/weather?q=NewYork&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                id="sendToNewYork"
+                >New York 🗽</a
+              >
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <form id="form-input">
+        <div class="row">
+          <div class="col-8" type="form">
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              placeholder="Enter city name"
+              autocomplete="off"
+            />
+          </div>
+          <div class="col-2">
+            <input type="submit" class="search" value="Search" />
+          </div>
+          <div class="col-2">
+            <button type="current" class="current" id="back_to_current_city">
+              Current city
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <br />
+
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title" id="inputtedCity">
+                <strong> Lviv </strong>
+              </h1>
+              <h2 class="temperature">
+                <span class="temperature" id="temperature">19</span
+                ><span class="units"> °C </span>
+              </h2>
+
+              <p class="card-text-date" id="todaysDate"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4 details">
+          <ul>
+            <li>Humidity: <span id="humidity"> 56</span>%💧</li>
+            <li>Wind: <span id="wind"> 0.6</span>m/s💨</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+
+      <div class="row" id="weekDays">
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate">
+                Sun 24/07/22
+                <br />
+                ⛅
+                <br />
+                <strong>+21°C/ </strong>11°C
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate1">
+                Mon
+                <br />
+                25/07/22
+                <br />
+                ⛅
+                <br />
+                <strong>+22°C/ </strong>12°C
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate2">
+                Tue
+                <br />
+                26/07/22 <br />⛅<br />
+                <strong>+24°C/ </strong>14°C
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate3">
+                Wed
+                <br />
+                27/07/22 <br />⛅<br />
+                <strong>+28°C/ </strong>15°C
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate4">
+                Thu
+                <br />
+                28/07/22 <br />🌞<br />
+                <strong>+29°C/ </strong>16°C
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="card" id="weekDays1">
+            <div class="card-body">
+              <p class="details" id="nextDate5">
+                Fri
+                <br />
+                29/07/22 <br />☔<br />
+                <strong>+28°C/ </strong>15°C
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
