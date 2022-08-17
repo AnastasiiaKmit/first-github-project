@@ -143,10 +143,6 @@ function getCurrentPosition() {
 let currentButton = document.querySelector("#back_to_current_city");
 currentButton.addEventListener("click", getCurrentPosition);
 
-//function showDays (dayIndex) {
-//  return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][dayIndex+1] || "";
-//}
-
 document.querySelector("#nextDate").innerHTML = dayOfWeek(now.getDay() + 1);
 document.querySelector("#nextDate1").innerHTML = dayOfWeek(now.getDay() + 2);
 document.querySelector("#nextDate2").innerHTML = dayOfWeek(now.getDay() + 3);
