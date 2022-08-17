@@ -60,11 +60,12 @@ div.cities {
   padding: 10px;
 }
 
-input.search,
+button.search,
 button.current {
   background: #beffff;
   border-color: #fdfce2;
   padding: 10px;
+  width: 100%;
 }
 .search:hover,
 .current:hover {
