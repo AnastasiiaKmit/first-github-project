@@ -14,186 +14,192 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="cities">
+    <main>
+      <div class="container">
+        <div class="cities">
+          <div class="row">
+            <div class="col-4">
+              <h4>
+                <a
+                  href="https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                  id="sendToKyiv"
+                  >Kyiv 💙💛</a
+                >
+              </h4>
+            </div>
+            <div class="col-4">
+              <h4>
+                <a
+                  href="https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                  id="sendToLondon"
+                >
+                  London 👑</a
+                >
+              </h4>
+            </div>
+
+            <div class="col-4">
+              <h4>
+                <a
+                  href="https://api.openweathermap.org/data/2.5/weather?q=NewYork&units=metric&appid=0fd0719178975f973227695c5ae18796"
+                  id="sendToNewYork"
+                  >New York 🗽</a
+                >
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <form id="form-input">
+          <div class="row">
+            <div class="col-8" type="form">
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                placeholder="Enter city name"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-2">
+              <button type="submit" class="search" value="Search">
+                Search
+              </button>
+            </div>
+            <div class="col-2">
+              <button type="current" class="current" id="back_to_current_city">
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <br />
+
         <div class="row">
-          <div class="col-4">
-            <h4>
-              <a
-                href="https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=0fd0719178975f973227695c5ae18796"
-                id="sendToKyiv"
-                >Kyiv 💙💛</a
-              >
-            </h4>
-          </div>
-          <div class="col-4">
-            <h4>
-              <a
-                href="https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=0fd0719178975f973227695c5ae18796"
-                id="sendToLondon"
-              >
-                London 👑</a
-              >
-            </h4>
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title" id="inputtedCity">
+                  <strong> Lviv </strong>
+                </h1>
+                <h2 class="temperature">
+                  <span class="temperature" id="temperature">19</span
+                  ><span class="units"> °C </span>
+                </h2>
+
+                <p class="card-text-date" id="todaysDate"></p>
+              </div>
+            </div>
           </div>
 
-          <div class="col-4">
-            <h4>
-              <a
-                href="https://api.openweathermap.org/data/2.5/weather?q=NewYork&units=metric&appid=0fd0719178975f973227695c5ae18796"
-                id="sendToNewYork"
-                >New York 🗽</a
-              >
-            </h4>
+          <div class="col-4 details">
+            <ul>
+              <li>Humidity: <span id="humidity"> 56</span>%💧</li>
+              <li>Wind: <span id="wind"> 0.6</span>m/s💨</li>
+            </ul>
           </div>
         </div>
-      </div>
+        <br />
 
-      <br />
-      <form id="form-input">
-        <div class="row">
-          <div class="col-8" type="form">
-            <input
-              type="text"
-              class="form-control"
-              id="inputCity"
-              placeholder="Enter city name"
-              autocomplete="off"
-            />
-          </div>
+        <div class="row" id="weekDays">
           <div class="col-2">
-            <button type="submit" class="search" value="Search">Search</button>
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate"> Sun </span>
+                  <br />
+                  ⛅
+                  <br />
+                  <strong>+21°C/ </strong>11°C
+                </p>
+              </div>
+            </div>
           </div>
+
           <div class="col-2">
-            <button type="current" class="current" id="back_to_current_city">
-              Current city
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <br />
-
-      <div class="row">
-        <div class="col-8">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="card-title" id="inputtedCity">
-                <strong> Lviv </strong>
-              </h1>
-              <h2 class="temperature">
-                <span class="temperature" id="temperature">19</span
-                ><span class="units"> °C </span>
-              </h2>
-
-              <p class="card-text-date" id="todaysDate"></p>
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate1"> Mon </span>
+                  <br />
+                  ⛅
+                  <br />
+                  <strong>+22°C/ </strong>12°C
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-4 details">
-          <ul>
-            <li>Humidity: <span id="humidity"> 56</span>%💧</li>
-            <li>Wind: <span id="wind"> 0.6</span>m/s💨</li>
-          </ul>
-        </div>
-      </div>
-      <br />
-
-      <div class="row" id="weekDays">
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate"> Sun </span>
-                <br />
-                ⛅
-                <br />
-                <strong>+21°C/ </strong>11°C
-              </p>
+          <div class="col-2">
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate2"> Tue </span>
+                  <br />
+                  ⛅
+                  <br />
+                  <strong>+24°C/ </strong>14°C
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate1"> Mon </span>
-                <br />
-                ⛅
-                <br />
-                <strong>+22°C/ </strong>12°C
-              </p>
+          <div class="col-2">
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate3"> Wed </span>
+                  <br />
+                  ⛅
+                  <br />
+                  <strong>+28°C/ </strong>15°C
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate2"> Tue </span>
-                <br />
-                ⛅
-                <br />
-                <strong>+24°C/ </strong>14°C
-              </p>
+          <div class="col-2">
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate4"> Thu </span>
+                  <br />
+                  🌞
+                  <br />
+                  <strong>+29°C/ </strong>16°C
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate3"> Wed </span>
-                <br />
-                ⛅
-                <br />
-                <strong>+28°C/ </strong>15°C
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate4"> Thu </span>
-                <br />
-                🌞
-                <br />
-                <strong>+29°C/ </strong>16°C
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2">
-          <div class="card" id="weekDays1">
-            <div class="card-body">
-              <p class="details">
-                <span id="nextDate5"> Fri </span>
-                <br />
-                ☔
-                <br />
-                <strong>+28°C/ </strong>15°C
-              </p>
+          <div class="col-2">
+            <div class="card" id="weekDays1">
+              <div class="card-body">
+                <p class="details">
+                  <span id="nextDate5"> Fri </span>
+                  <br />
+                  ☔
+                  <br />
+                  <strong>+28°C/ </strong>15°C
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <p class="code_info">
-      <a
-        href="https://github.com/AnastasiiaKmit/first-github-project"
-        alt="Github link"
-        target="_blank"
-        >Open-source code </a
-      ><strong>Anastasiia Kmit</strong>
-    </p>
+    </main>
+    <footer>
+      <p class="code_info">
+        <a
+          href="https://github.com/AnastasiiaKmit/first-github-project"
+          alt="Github link"
+          target="_blank"
+          >Open-source code </a
+        ><strong>Anastasiia Kmit</strong>
+      </p>
+    </footer>
     <script src="src/index.js"></script>
   </body>
 </html>

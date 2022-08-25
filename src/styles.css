@@ -1,16 +1,19 @@
 body {
   font-family: "Times New Roman", Times, serif;
+}
+main {
   border-style: groove;
-  border-color: #4eae53;
+  border-color: #d9d9d9;
   box-sizing: border-box;
   display: block;
   padding: 10px;
-  margin: 10% 20%;
+  margin: 2% auto;
   text-align: center;
+  max-width: 50%;
 }
 
 a {
-  color: black;
+  color: #202124;
   text-decoration: none;
 }
 
@@ -19,9 +22,11 @@ p,
 div.container,
 #weekDays1 {
   text-align: center;
+  color: #202124;
 }
 h1 {
   font-size: 38px;
+  color: #202124;
 }
 
 h4 {
@@ -40,6 +45,11 @@ ul {
 }
 li {
   list-style: none;
+  color: #70757a;
+}
+footer {
+  position: relative;
+  margin-top: -2%;
 }
 
 div.cities {
@@ -52,6 +62,7 @@ div.cities {
 }
 .card-text-date {
   text-align: center;
+  color: #70757a;
 }
 
 .form-control {
@@ -78,9 +89,4 @@ button.current {
   opacity: 0.8;
   margin: 0 auto;
   padding-bottom: 11px;
-}
-
-.code_info {
-  text-align: left;
-  margin: 1%;
 }
