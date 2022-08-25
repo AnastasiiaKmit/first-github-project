@@ -27,6 +27,7 @@ div.container,
 h1 {
   font-size: 38px;
   color: #202124;
+  text-align: left;
 }
 
 h4 {
@@ -61,7 +62,7 @@ div.cities {
   opacity: 0.7;
 }
 .card-text-date {
-  text-align: center;
+  text-align: left;
   color: #70757a;
 }
 
@@ -69,6 +70,25 @@ div.cities {
   background: white;
   border-color: #c0e0e0;
   padding: 10px;
+}
+
+.details {
+  font-size: larger;
+  opacity: 0.8;
+  margin: 0 auto;
+  padding-bottom: 11px;
+}
+
+#weather_main {
+  display: inline;
+}
+#temperature {
+  font-size: 48px;
+}
+#temperatureUnits {
+  position: relative;
+  font-size: 16px;
+  top: -21px;
 }
 
 button.search,
@@ -82,11 +102,4 @@ button.current {
 .current:hover {
   background: #42a5f5;
   transition: all 200ms ease-in-out;
-}
-
-.details {
-  font-size: larger;
-  opacity: 0.8;
-  margin: 0 auto;
-  padding-bottom: 11px;
 }

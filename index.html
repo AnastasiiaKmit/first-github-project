@@ -81,15 +81,28 @@
           <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <h1 class="card-title" id="inputtedCity">
-                  <strong> Lviv </strong>
-                </h1>
-                <h2 class="temperature">
-                  <span class="temperature" id="temperature">19</span
-                  ><span class="units"> °C </span>
-                </h2>
-
-                <p class="card-text-date" id="todaysDate"></p>
+                <div class="row">
+                  <div class="col-6">
+                    <h1 class="card-title" id="inputtedCity">
+                      <strong> Lviv </strong>
+                    </h1>
+                    <p class="card-text-date" id="todaysDate"></p>
+                  </div>
+                  <div class="col-6">
+                    <div id="weather_main">
+                      <img
+                        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                        id="icon"
+                      />
+                      <span class="temperature" id="temperature">19</span>
+                      <span id="temperatureUnits">
+                        <a href="#" id="celsiusUnits"> °C </a>|
+                        <a href="#" id="fahrenheitUnits">°F</a>
+                      </span>
+                      <div id="description">jhbhbhbh</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
