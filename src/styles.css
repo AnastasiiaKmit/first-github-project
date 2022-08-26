@@ -28,6 +28,7 @@ h1 {
   font-size: 38px;
   color: #202124;
   text-align: left;
+  margin-bottom: 0;
 }
 
 h4 {
@@ -39,6 +40,14 @@ input,
 button {
   border-radius: 5px;
   padding: 4px 20px;
+}
+
+img {
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  align-self: center;
+  width: 60px;
 }
 
 ul {
@@ -64,6 +73,7 @@ div.cities {
 .card-text-date {
   text-align: left;
   color: #70757a;
+  margin-top: 0;
 }
 
 .form-control {
@@ -81,14 +91,21 @@ div.cities {
 
 #weather_main {
   display: inline;
+  align-items: flex-end;
+}
+#description {
+  text-align: left;
+  color: #70757a;
+  margin-top: 0;
 }
 #temperature {
-  font-size: 48px;
+  font-size: 64px;
+  margin-top: 0 auto;
 }
 #temperatureUnits {
   position: relative;
   font-size: 16px;
-  top: -21px;
+  bottom: -20px;
 }
 
 button.search,

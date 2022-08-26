@@ -32,6 +32,8 @@ function showDate() {
 document.querySelector("#todaysDate").innerHTML = showDate();
 
 function showTempInputtedCity(response) {
+  let iconElement = document.querySelector("#icon");
+  let icon = response.data.weather[0].icon;
   document.querySelector(
     "#inputtedCity"
   ).innerHTML = `<strong>${response.data.name}</strong>`;
@@ -40,6 +42,12 @@ function showTempInputtedCity(response) {
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
 }
 
 function searchCity(event) {
@@ -57,6 +65,8 @@ function showTempKyiv(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   let h1 = document.querySelector("h1");
@@ -78,6 +88,7 @@ function showTempLondon(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  console.log(response.data.weather[0].icon);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -101,6 +112,8 @@ function showTempNewYork(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   let h1 = document.querySelector("h1");
