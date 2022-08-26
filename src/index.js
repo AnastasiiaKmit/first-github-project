@@ -91,6 +91,9 @@ let kyivCity = document.querySelector("#sendToKyiv");
 kyivCity.addEventListener("click", changeToKyiv);
 
 function showTempLondon(response) {
+  let h1 = document.querySelector("h1");
+  let iconElement = document.querySelector("#icon");
+  let icon = response.data.weather[0].icon;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -99,8 +102,11 @@ function showTempLondon(response) {
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  let h1 = document.querySelector("h1");
   h1.innerHTML = `<strong>London</strong>`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 
 function changeToLondon(event) {
@@ -115,6 +121,9 @@ let londonCity = document.querySelector("#sendToLondon");
 londonCity.addEventListener("click", changeToLondon);
 
 function showTempNewYork(response) {
+  let h1 = document.querySelector("h1");
+  let iconElement = document.querySelector("#icon");
+  let icon = response.data.weather[0].icon;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -122,8 +131,11 @@ function showTempNewYork(response) {
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  let h1 = document.querySelector("h1");
   h1.innerHTML = `<strong>New York</strong>`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 
 function changeToNewYork(event) {
