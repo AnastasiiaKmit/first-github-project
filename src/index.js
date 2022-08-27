@@ -13,19 +13,19 @@ if (minutes < 10) {
 }
 
 function showDate() {
-  let date = now.getDate();
-  if (date < 10) {
-    date = `0${date}`;
-  }
-  let month = now.getMonth() + 1;
-  if (month < 10) {
-    month = `0${month}`;
-  }
-  let year = now.getFullYear();
+  //let date = now.getDate();
+  //if (date < 10) {
+  //date = `0${date}`;
+  //}
+  //let month = now.getMonth() + 1;
+  //if (month < 10) {
+  //month = `0${month}`;
+  //}
+  //let year = now.getFullYear();
   return [
     `${dayOfWeek(now.getDay())} `,
     `${hour}:${minutes}`,
-    `${date}/${month}/${year}`,
+    //`${date}/${month}/${year}`,
   ].join(" ");
 }
 
@@ -34,6 +34,7 @@ document.querySelector("#todaysDate").innerHTML = showDate();
 function showTempInputtedCity(response) {
   let iconElement = document.querySelector("#icon");
   let icon = response.data.weather[0].icon;
+  celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector(
     "#inputtedCity"
   ).innerHTML = `<strong>${response.data.name}</strong>`;
@@ -58,10 +59,12 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTempInputtedCity);
 }
+
 let form = document.querySelector("#form-input");
 form.addEventListener("submit", searchCity);
 
 function showTemperature(response) {
+  celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector(
     "h1"
   ).innerHTML = `<strong>${response.data.name}</strong>`;
@@ -88,9 +91,23 @@ function getCurrentPosition() {
 let currentButton = document.querySelector("#back_to_current_city");
 currentButton.addEventListener("click", getCurrentPosition);
 
-document.querySelector("#nextDate").innerHTML = dayOfWeek(now.getDay() + 1);
-document.querySelector("#nextDate1").innerHTML = dayOfWeek(now.getDay() + 2);
-document.querySelector("#nextDate2").innerHTML = dayOfWeek(now.getDay() + 3);
-document.querySelector("#nextDate3").innerHTML = dayOfWeek(now.getDay() + 4);
-document.querySelector("#nextDate4").innerHTML = dayOfWeek(now.getDay() + 5);
-document.querySelector("#nextDate5").innerHTML = dayOfWeek(now.getDay() + 6);
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
