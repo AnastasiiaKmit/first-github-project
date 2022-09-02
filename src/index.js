@@ -31,7 +31,8 @@ function showDate() {
 
 document.querySelector("#todaysDate").innerHTML = showDate();
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -47,8 +48,8 @@ function displayForecast() {
         width="42"
       />
       <div class="forecast-temperatures">
-        <span class="forecast-temperature-min">18°</span>
-        <span class="forecast-temperature-man">23°</span>
+        <span class="forecast-temperature-max">${response.data.daily}°</span>
+        <span class="forecast-temperature-min">${response.data.daily}°</span>
       </div>
     </div>
   `;
@@ -56,6 +57,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "a221b0bc8a3d0f29a2938e05fc8d1784";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTempInputtedCity(response) {
@@ -76,6 +85,8 @@ function showTempInputtedCity(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -144,4 +155,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Lviv");
-displayForecast();
