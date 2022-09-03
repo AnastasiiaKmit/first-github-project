@@ -12,17 +12,29 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 
+document.querySelector("#todaysDate").innerHTML = showDate();
+
+let currentButton = document.querySelector("#back_to_current_city");
+currentButton.addEventListener("click", getCurrentPosition);
+
+let form = document.querySelector("#form-input");
+form.addEventListener("submit", handleSubmit);
+
 function showDate() {
   return [`${dayOfWeek(now.getDay())} `, `${hour}:${minutes}`].join(" ");
 }
 
-document.querySelector("#todaysDate").innerHTML = showDate();
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "0fd0719178975f973227695c5ae18796";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
-function search(event) {
+function getCurrentPosition(event) {
   event.preventDefault();
-  let cityElement = document.querySelector("#inputtedCity");
-  let cityInput = document.querySelector("#inputCity");
-  cityElement.innerHTML = cityInput.value;
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
 function formatForcastDate(timestamp) {
@@ -101,7 +113,6 @@ function showTempInputtedCity(response) {
 function searchCity(city) {
   let apiKey = "0fd0719178975f973227695c5ae18796";
   let units = "metric";
-  //let city = document.querySelector("#inputCity").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTempInputtedCity);
 }
@@ -115,31 +126,14 @@ function handleSubmit(event) {
 function showTemperature(response) {
   let cityElement = document.querySelector("#inputtedCity");
   cityElement.innerHTML = `<strong>${response.data.name}</strong>`;
-  celsiusTemperature = Math.round(response.data.main.temp);
+  //celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
+
+  getForecast(response.data.coord);
 }
-
-function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "0fd0719178975f973227695c5ae18796";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-function getCurrentPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-let currentButton = document.querySelector("#back_to_current_city");
-currentButton.addEventListener("click", getCurrentPosition);
-
-let form = document.querySelector("#form-input");
-form.addEventListener("submit", handleSubmit);
 
 searchCity("Lviv");
