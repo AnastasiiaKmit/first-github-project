@@ -81,6 +81,9 @@ footer {
   margin: 0 auto;
   padding-bottom: 11px;
 }
+.forecast-temperature-min {
+  color: #bfc1c4;
+}
 
 #weather_main {
   display: inline;
