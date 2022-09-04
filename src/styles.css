@@ -82,7 +82,7 @@ footer {
   padding-bottom: 11px;
 }
 .forecast-temperature-min {
-  color: #bfc1c4;
+  color: #70757a;
 }
 
 #weather_main {
@@ -106,8 +106,9 @@ footer {
 
 button.search,
 button.current {
-  background: #c2dbfe;
+  background: #000030;
   border-color: #fdfce2;
+  color: white;
   padding: 10px;
   width: 100%;
 }
